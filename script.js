@@ -2,7 +2,7 @@
   const THEME_KEY = "bk_portfolio_theme";
   const NAV_OPEN_CLASS = "nav-open";
   const EMAIL_TO = "bony.jaiswal@gmail.com";
-  const DEFAULT_EXPERIENCE_START = "2015-06-15";
+  const DEFAULT_EXPERIENCE_START = "2017-06-15";
 
   const getYearsOfExperience = (startDateStr) => {
     const start = new Date(startDateStr ?? DEFAULT_EXPERIENCE_START);
