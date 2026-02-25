@@ -31,7 +31,16 @@ async function generatePDF() {
   const page = await browser.newPage();
   
   await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle0' });
-  
+
+  await page.evaluate(() => {
+    document.querySelectorAll('[data-experience-years]').forEach(el => {
+      const startStr = el.getAttribute('data-experience-start') || '2017-06-15';
+      const start = new Date(startStr);
+      const years = (new Date() - start) / (1000 * 60 * 60 * 24 * 365.25);
+      el.textContent = Math.round(years * 10) / 10;
+    });
+  });
+
   await page.pdf({
     path: pdfPath,
     format: 'A4',

@@ -2,6 +2,31 @@
   const THEME_KEY = "bk_portfolio_theme";
   const NAV_OPEN_CLASS = "nav-open";
   const EMAIL_TO = "bony.jaiswal@gmail.com";
+  const DEFAULT_EXPERIENCE_START = "2017-06-15";
+
+  const getYearsOfExperience = (startDateStr) => {
+    const start = new Date(startDateStr || DEFAULT_EXPERIENCE_START);
+    const now = new Date();
+    const years = (now - start) / (1000 * 60 * 60 * 24 * 365.25);
+    return Math.round(years * 10) / 10;
+  };
+
+  const initExperienceYears = () => {
+    const firstEl = document.querySelector("[data-experience-years][data-experience-start]");
+    const startStr = firstEl?.getAttribute("data-experience-start") || DEFAULT_EXPERIENCE_START;
+    const years = getYearsOfExperience(startStr);
+    document.querySelectorAll("[data-experience-years]").forEach((el) => {
+      if (el.hasAttribute("data-countup")) el.setAttribute("data-countup", String(years));
+      el.textContent = String(years);
+    });
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        metaDesc.getAttribute("content").replace(/[\d.]+(?=\+?\s*years?)/i, String(years))
+      );
+    }
+  };
 
   const prefersReducedMotion = () =>
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
@@ -504,6 +529,7 @@
   };
 
   document.addEventListener("DOMContentLoaded", () => {
+    initExperienceYears();
     setYear();
     initThemeToggle();
     initScrollProgress();
