@@ -266,6 +266,17 @@ body.nav-open .site-header {
   border: 1px solid color-mix(in srgb, var(--border), white 10%);
 }
 
+.nav-cta-resume {
+  background: linear-gradient(135deg, #1a365d, #2c5282);
+  box-shadow: 0 2px 8px rgba(26, 54, 93, 0.35);
+  font-weight: 600;
+}
+
+.nav-cta-resume:hover {
+  background: linear-gradient(135deg, #2c5282, #2a436e);
+  box-shadow: 0 4px 12px rgba(26, 54, 93, 0.45);
+}
+
 .menu-toggle {
   display: none;
   align-items: center;
