@@ -5,6 +5,7 @@ This is a simple, responsive portfolio UI generated from your resume content.
 ## Files
 
 - `index.html`: page structure and content
+- `video-portfolio.html`: video portfolio page (add your demo videos/links here)
 - `styles.css`: styling (no frameworks)
 - `script.js`: theme toggle + current year
 
