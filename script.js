@@ -109,6 +109,7 @@
       overlay.hidden = false;
       toggle.setAttribute("aria-expanded", "true");
       toggle.setAttribute("aria-label", "Close menu");
+      if (typeof window.__bkScrollSpyUpdate === "function") window.__bkScrollSpyUpdate();
     };
 
     toggle.addEventListener("click", () => {
@@ -149,18 +150,42 @@
       if (active) active.setAttribute("aria-current", "page");
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
-        if (!visible) return;
-        setCurrent(visible.target.id);
-      },
-      { root: null, threshold: [0.12, 0.2, 0.35], rootMargin: "-30% 0px -60% 0px" }
-    );
+    const headerEl = document.querySelector(".site-header");
+    const getTopOffset = () => {
+      const h = headerEl instanceof HTMLElement ? headerEl.getBoundingClientRect().height : 0;
+      return Math.max(0, Math.round(h + 12));
+    };
 
-    for (const s of sections) observer.observe(s);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const offset = getTopOffset();
+
+      let best = null;
+      for (const s of sections) {
+        if (!(s instanceof HTMLElement)) continue;
+        const r = s.getBoundingClientRect();
+        const top = r.top - offset;
+        if (top <= 24) {
+          if (!best || top > best.top) best = { id: s.id, top };
+        }
+      }
+
+      if (best?.id) setCurrent(best.id);
+      else if (sections[0]?.id) setCurrent(sections[0].id);
+    };
+
+    const schedule = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(update);
+    };
+
+    window.__bkScrollSpyUpdate = update;
+
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    window.addEventListener("hashchange", update);
   };
 
   const initReveal = () => {

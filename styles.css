@@ -183,6 +183,13 @@ code {
   border-bottom: 1px solid var(--border);
 }
 
+/* Mobile Safari can render text “blurry” under backdrop blur while animating */
+body.nav-open .site-header {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: color-mix(in srgb, var(--bg), black 6%);
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -325,9 +332,15 @@ body.nav-open .menu-icon::after {
 .nav-overlay {
   position: fixed;
   inset: 0;
-  z-index: 1050;
+  /* Keep overlay below the header/nav so menu links stay clickable */
+  z-index: 950;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(4px);
+}
+
+body.nav-open .nav-overlay {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .theme-toggle {
@@ -1119,6 +1132,12 @@ textarea:focus,
 
 /* Responsive */
 @media (max-width: 980px) {
+  .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in srgb, var(--bg), black 6%);
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
   }
@@ -1146,12 +1165,6 @@ textarea:focus,
   body,
   [data-theme="dark"] body {
     background-attachment: scroll;
-  }
-
-  .site-header {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: color-mix(in srgb, var(--bg), black 6%);
   }
 
   .header-inner {
@@ -1185,6 +1198,7 @@ textarea:focus,
   }
 
   .nav a {
+    display: block;
     padding: 10px 12px;
     color: var(--text);
   }
