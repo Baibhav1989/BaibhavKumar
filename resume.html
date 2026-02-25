@@ -170,7 +170,7 @@
   <section>
     <h2 class="section-title">Professional Summary</h2>
     <p class="summary">
-      Accomplished Salesforce Developer with over <span data-experience-years data-experience-start="2017-06-15">0</span> years of experience designing, developing, and integrating robust Salesforce solutions across Sales Cloud, Service Cloud, Vlocity, EPC, ESM, and Communications Cloud. Skilled in Apex, Visualforce, Lightning Web Components (LWC), and REST APIs, with a proven track record of delivering scalable, high-quality solutions. Adept at migrating legacy CRM systems to Salesforce and leveraging Vlocity products including Omniscript, Flex Cards, and Integration Procedures to drive business outcomes. Proficient in CI/CD pipeline development and SFDX Unlock Packages, with strong problem-solving and leadership skills demonstrated across diverse industries.
+      Accomplished Salesforce Developer with over <span data-experience-years>0</span> years of experience designing, developing, and integrating robust Salesforce solutions across Sales Cloud, Service Cloud, Vlocity, EPC, ESM, and Communications Cloud. Skilled in Apex, Visualforce, Lightning Web Components (LWC), and REST APIs, with a proven track record of delivering scalable, high-quality solutions. Adept at migrating legacy CRM systems to Salesforce and leveraging Vlocity products including Omniscript, Flex Cards, and Integration Procedures to drive business outcomes. Proficient in CI/CD pipeline development and SFDX Unlock Packages, with strong problem-solving and leadership skills demonstrated across diverse industries.
     </p>
   </section>
 
@@ -319,15 +319,6 @@
     </div>
   </section>
 
-  <script>
-    (function () {
-      document.querySelectorAll('[data-experience-years]').forEach(function (el) {
-        const startStr = el.getAttribute('data-experience-start') || '2017-06-15';
-        const start = new Date(startStr);
-        const years = (new Date() - start) / (1000 * 60 * 60 * 24 * 365.25);
-        el.textContent = Math.round(years * 10) / 10;
-      });
-    })();
-  </script>
+  <script src="./script.js"></script>
 </body>
 </html>
