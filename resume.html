@@ -3,383 +3,563 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baibhav Kumar - Senior Salesforce Developer</title>
+  <title>Baibhav Kumar – Salesforce Architect</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1a365d;
-      --accent: #2c5282;
-      --text: #2d3748;
-      --text-muted: #4a5568;
-      --border: #e2e8f0;
+      --blue: #1a56db;
+      --blue-dark: #1e40af;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #d1d5db;
+      --blue-light: #eff6ff;
     }
-    
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+
     body {
       font-family: 'Source Sans 3', -apple-system, sans-serif;
       font-size: 10.5pt;
-      line-height: 1.4;
+      line-height: 1.45;
       color: var(--text);
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 32px 40px;
+      padding: 32px 44px;
       background: #fff;
     }
-    
-    /* Header */
+
+    /* ── Header ── */
     .header {
       text-align: center;
-      padding-bottom: 20px;
-      border-bottom: 2px solid var(--primary);
       margin-bottom: 20px;
     }
-    
+
     .header h1 {
-      font-size: 22pt;
+      font-size: 28pt;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--blue);
       letter-spacing: -0.5px;
       margin-bottom: 8px;
     }
-    
+
     .contact-info {
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 16px 24px;
+      gap: 2px 6px;
       font-size: 9.5pt;
       color: var(--text-muted);
     }
-    
-    .contact-info span { font-weight: 500; }
+
+    .contact-row { margin-bottom: 3px; }
+    .contact-links { margin-top: 1px; }
+
+    .contact-info .sep {
+      color: #9ca3af;
+      font-weight: 400;
+      user-select: none;
+    }
+
     .contact-info a {
-      color: var(--accent);
+      color: var(--blue);
       text-decoration: none;
     }
     .contact-info a:hover { text-decoration: underline; }
-    
-    /* Sections */
-    section { margin-bottom: 18px; }
-    
+
+    /* ── Section titles ── */
+    section { margin-bottom: 16px; }
+
     .section-title {
-      font-size: 11pt;
+      font-size: 10.5pt;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
       padding-bottom: 4px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1.5px solid var(--blue);
     }
-    
-    /* Summary */
+
+    /* ── Summary ── */
     .summary {
       font-size: 10pt;
-      text-align: justify;
+      line-height: 1.55;
+    }
+
+    /* ── Key Achievements ── */
+    .achievements ul {
+      margin-left: 18px;
+    }
+
+    .achievements li {
+      margin-bottom: 5px;
       line-height: 1.5;
     }
-    
-    /* Experience */
-    .experience-item { margin-bottom: 16px; }
-    
-    .job-header {
+
+    /* ── Core Competencies ── */
+    .competencies {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 4px;
+      gap: 5px 8px;
     }
-    
-    .job-title { font-weight: 600; font-size: 10.5pt; color: var(--text); }
-    .job-date { font-size: 9pt; color: var(--text-muted); font-weight: 500; }
-    .company-name { font-size: 10pt; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
-    
-    .project-name {
-      font-weight: 600;
-      font-size: 9.5pt;
-      color: var(--text);
-      margin: 8px 0 4px 0;
-    }
-    
-    ul {
-      margin-left: 18px;
-      margin-bottom: 6px;
-    }
-    
-    li {
-      margin-bottom: 3px;
-      text-align: justify;
-    }
-    
-    .tech-stack {
+
+    .competencies span {
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      border: 1px solid #bfdbfe;
+      border-radius: 3px;
+      padding: 2px 8px;
       font-size: 9pt;
-      color: var(--text-muted);
-      font-style: italic;
-      margin-top: 6px;
+      font-weight: 500;
     }
-    
-    /* Skills */
-    .skills-grid {
+
+    /* ── Skills table ── */
+    .skills-table {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px 24px;
+      gap: 6px 32px;
     }
-    
-    .skill-category { margin-bottom: 4px; }
-    
-    .skill-category strong {
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 0 8px;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: var(--blue);
       font-size: 9.5pt;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 2px;
     }
-    
-    .skill-category span { font-size: 9.5pt; }
-    
-    /* Certifications */
+
+    .skill-value {
+      font-size: 9.5pt;
+      color: var(--text);
+    }
+
+    /* ── Certifications with blue ticks ── */
     .certs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 4px 24px;
+      list-style: none;
+      margin: 0;
     }
-    
-    .certs-grid li { margin-bottom: 2px; }
-    
-    /* Education */
-    .education-item { margin-bottom: 4px; }
-    
-    .education-item strong { color: var(--accent); }
-    
-    /* Download bar */
+
+    .certs-grid li {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 9.5pt;
+      margin-bottom: 1px;
+    }
+
+    .certs-grid li::before {
+      content: "✔";
+      color: var(--blue);
+      font-size: 9pt;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Experience ── */
+    .experience-item { margin-bottom: 14px; }
+
+    .company-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 1px;
+    }
+
+    .company-name {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 10.5pt;
+    }
+
+    .company-location {
+      color: var(--text-muted);
+      font-size: 9.5pt;
+      font-weight: 400;
+    }
+
+    .job-date {
+      font-size: 9.5pt;
+      color: var(--text-muted);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    /* Left blue bar on project entries */
+    .project-block {
+      border-left: 3px solid var(--blue);
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-name {
+      font-weight: 700;
+      font-size: 9.5pt;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .project-role {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 9pt;
+    }
+
+    ul {
+      margin-left: 16px;
+      margin-bottom: 4px;
+    }
+
+    li {
+      margin-bottom: 3px;
+      line-height: 1.5;
+    }
+
+    .tech-stack {
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* ── Education ── */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-degree {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 10pt;
+    }
+
+    .edu-year {
+      color: var(--text-muted);
+      font-size: 9.5pt;
+    }
+
+    /* ── Download button ── */
     .resume-actions {
       position: fixed;
       top: 16px;
       right: 16px;
       z-index: 100;
-      display: flex;
-      gap: 8px;
     }
-    .resume-actions .btn-download {
-      padding: 10px 20px;
-      background: var(--primary);
+
+    .btn-download {
+      padding: 9px 18px;
+      background: var(--blue);
       color: #fff;
       border: none;
       border-radius: 6px;
       font-family: inherit;
-      font-size: 11pt;
+      font-size: 10pt;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(26, 54, 93, 0.3);
+      box-shadow: 0 2px 8px rgba(26, 86, 219, 0.3);
       transition: background 0.2s, transform 0.1s;
     }
-    .resume-actions .btn-download:hover {
-      background: var(--accent);
+    .btn-download:hover { background: var(--blue-dark); }
+    .btn-download:active { transform: scale(0.98); }
+    .btn-download:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    /* ── Page-break control (Puppeteer uses screen context for PDF) ── */
+    .section-title { break-after: avoid; page-break-after: avoid; }
+    .company-header { break-after: avoid; page-break-after: avoid; }
+    .job-title { break-after: avoid; page-break-after: avoid; }
+    .project-block {
+      break-inside: avoid; page-break-inside: avoid;
+      break-before: avoid; page-break-before: avoid;
     }
-    .resume-actions .btn-download:active {
-      transform: scale(0.98);
+    /* Keeps section title pinned to the first item beneath it */
+    .section-anchor {
+      break-inside: avoid; page-break-inside: avoid;
     }
-    .resume-actions .btn-download:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-    
-    /* Print */
+
+    /* ── Print ── */
     @media print {
       .resume-actions { display: none !important; }
-      body { padding: 24px 32px; }
-      .section-title { break-after: avoid; }
-      .experience-item { break-inside: avoid; page-break-inside: avoid; }
-      ul { break-inside: avoid; }
+      body { padding: 20px 28px; }
+      .section-title { break-after: avoid; page-break-after: avoid; }
+      .company-header { break-after: avoid; page-break-after: avoid; }
+      .job-title { break-after: avoid; page-break-after: avoid; }
+      .project-block {
+        break-inside: avoid; page-break-inside: avoid;
+        break-before: avoid; page-break-before: avoid;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="resume-actions">
-    <button type="button" class="btn-download" id="download-pdf" aria-label="Download resume as PDF">
-      Download PDF
-    </button>
+    <button type="button" class="btn-download" id="download-pdf">Download PDF</button>
   </div>
 
   <main id="resume-content">
-  <header class="header">
-    <h1>Baibhav Kumar</h1>
-    <div class="contact-info">
-      <span>bony.jaiswal@gmail.com</span>
-      <span>+91 8983512519</span>
-      <span>+91 7972163272</span>
-      <span>LinkedIn: <a href="https://www.linkedin.com/in/baibhav-kumar-1780685b" target="_blank" rel="noreferrer">Baibhav Kumar</a></span>
-      <span>GitHub: <a href="https://github.com/Baibhav1989" target="_blank" rel="noreferrer">github.com/Baibhav1989</a></span>
-      <span>Trailhead: <a href="https://www.salesforce.com/trailblazer/bkumar358" target="_blank" rel="noreferrer">trailblazer/bkumar358</a></span>
-      <span>Portfolio: <a href="https://baibhav1989.github.io/BaibhavKumar/" target="_blank" rel="noreferrer">baibhav1989.github.io/BaibhavKumar</a></span>
-    </div>
-  </header>
 
-  <section>
-    <h2 class="section-title">Professional Summary</h2>
-    <p class="summary">
-      Accomplished Salesforce Developer with over <span data-experience-years>0</span> years of experience designing, developing, and integrating robust Salesforce solutions across Sales Cloud, Service Cloud, Vlocity, EPC, ESM, and Communications Cloud. Skilled in Apex, Visualforce, Lightning Web Components (LWC), and REST APIs, with a proven track record of delivering scalable, high-quality solutions. Adept at migrating legacy CRM systems to Salesforce and leveraging Vlocity products including Omniscript, Flex Cards, and Integration Procedures to drive business outcomes. Proficient in CI/CD pipeline development and SFDX Unlock Packages, with strong problem-solving and leadership skills demonstrated across diverse industries.
-    </p>
-  </section>
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <h1>Baibhav Kumar</h1>
+      <div class="contact-info contact-row">
+        <span>+91 8983512519</span>
+        <span class="sep">·</span>
+        <span>bony.jaiswal@gmail.com</span>
+        <span class="sep">·</span>
+        <span>Bengaluru, India</span>
+      </div>
+      <div class="contact-info contact-row contact-links">
+        <a href="https://www.linkedin.com/in/baibhav-kumar-1780685b" target="_blank" rel="noreferrer">linkedin.com/in/baibhavkumar</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/Baibhav1989" target="_blank" rel="noreferrer">github.com/Baibhav1989</a>
+        <span class="sep">·</span>
+        <a href="https://www.salesforce.com/trailblazer/bkumar358" target="_blank" rel="noreferrer">trailblazer/bkumar358</a>
+        <span class="sep">·</span>
+        <a href="https://baibhav1989.github.io/BaibhavKumar/" target="_blank" rel="noreferrer">baibhav1989.github.io/BaibhavKumar</a>
+      </div>
+    </header>
 
-  <section>
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <strong>Salesforce</strong>
-        <span>Sales Cloud, Service Cloud, FSL, Communities; Apex, Visualforce, LWC; Batch, Queueable, Scheduled Apex</span>
-      </div>
-      <div class="skill-category">
-        <strong>Integration</strong>
-        <span>REST APIs, SOAP, Web Services; Vlocity Integration Procedures, DataRaptors, Flex Cards</span>
-      </div>
-      <div class="skill-category">
-        <strong>Development</strong>
-        <span>SFDX Unlock Packages, CI/CD pipelines, Python scripting, Git, Copado</span>
-      </div>
-      <div class="skill-category">
-        <strong>Vlocity / CPQ</strong>
-        <span>Omniscript, CPQ, EPC, Order Management</span>
-      </div>
-      <div class="skill-category">
-        <strong>Languages</strong>
-        <span>Apex, JavaScript, Core Java, Python</span>
-      </div>
-    </div>
-  </section>
+    <!-- ── PROFESSIONAL SUMMARY ── -->
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary">
+        Salesforce Architect with <strong><span data-experience-years>0</span>+ years</strong> designing and delivering enterprise-scale CRM solutions across Telecom, Utilities, and SaaS industries. Dual-certified Architect (Application + Integration) with deep expertise in <strong>Vlocity/Industries, CPQ, ESM, LWC</strong>, and CI/CD automation. Proven track record leading cross-functional teams of 6+ engineers on global engagements including AT&amp;T, Intuit, and NZ Government.
+      </p>
+    </section>
 
-  <section>
-    <h2 class="section-title">Certifications</h2>
-    <ul class="certs-grid">
-      <li>Salesforce Certified Application Architect</li>
-      <li>Certified Sharing and Visibility Architect</li>
-      <li>Salesforce Certified Integration Architect</li>
-      <li>Salesforce Certified Data Architect</li>
-      <li>Salesforce Certified Development Lifecycle and Deployment Architect</li>
-      <li>Salesforce Certified Administrator</li>
-      <li>Salesforce Certified Associate</li>
-      <li>Salesforce Certified CPQ Specialist</li>
-      <li>Salesforce Certified Experience Cloud Consultant</li>
-      <li>Salesforce Certified Industries CPQ Developer</li>
-      <li>Salesforce Certified JavaScript Developer I</li>
-      <li>Salesforce Certified Omnistudio Developer</li>
-      <li>Salesforce Certified Platform App Builder</li>
-      <li>Salesforce Certified Platform Developer I & II</li>
-      <li>Salesforce Certified Sales Cloud Consultant</li>
-      <li>Salesforce Certified Service Cloud Consultant</li>
-      <li>Copado Fundamentals 1 & 2</li>
-      <li>Copado Consultant Certified</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 class="section-title">Professional Experience</h2>
-
-    <div class="experience-item">
-      <div class="company-name">Salesforce India Pvt Ltd</div>
-      <div class="job-header">
-        <span class="job-title">Senior Salesforce Developer / Team Lead</span>
-        <span class="job-date">June 2021 – Present</span>
-      </div>
-
-      <div class="project-name">Lumen</div>
+    <!-- ── KEY ACHIEVEMENTS ── -->
+    <section class="achievements">
+      <h2 class="section-title">Key Achievements</h2>
       <ul>
-        <li>Developed custom logic, designed and enhanced ESM feature; built APIs from Salesforce to Mule to Lumen</li>
-        <li>Developed and customized Vlocity Omniscript, Integration Procedures, and DataRaptors with robust error-handling mechanisms</li>
-        <li>Designed and implemented LWC components integrated with Omniscript; contributed to CPQ implementation</li>
+        <li>Led a <strong>6+ member engineering team</strong> on AT&amp;T's Vlocity/Industries implementation spanning 4+ years — one of the largest telecom transformation programs on Salesforce Industries.</li>
+        <li>Designed <strong>30+ OmniScript flows and 20+ Integration Procedures</strong> for complex telecom order management and billing orchestration at AT&amp;T and Lumen.</li>
+        <li>Reduced deployment errors by <strong>~60%</strong> at Intuit by architecting a fully automated CI/CD pipeline using Python + SFDX Unlock Packages, replacing a manual release process.</li>
+        <li>Delivered end-to-end <strong>CPQ + ESM + EPC</strong> configuration for multiple enterprise clients, cutting order provisioning time significantly through automated billing flows.</li>
+        <li>Earned <strong>20+ Salesforce certifications</strong> including the rare dual-Architect credential (Application Architect + Integration Architect), placing in the top tier of the Salesforce ecosystem.</li>
       </ul>
+    </section>
 
-      <div class="project-name">SiriusXM</div>
-      <ul>
-        <li>Developed and customized Vlocity Omniscript, Integration Procedures, and DataRaptors for car music subscription services</li>
-        <li>Designed integration solutions with advanced error-handling; streamlined subscription workflows</li>
-        <li>Implemented Service Cloud, Sales Cloud, and Communications Cloud solutions</li>
-      </ul>
-
-      <div class="project-name">3Water (New Zealand Government)</div>
-      <ul>
-        <li>Delivered Omniscript and LWC solutions for water distribution management</li>
-        <li>Designed complete UI leveraging Omniscript and LWC; customized Omniscript for complex water distribution workflows</li>
-        <li>Contributed to CPQ, EPC, and ESM implementations; optimized water distribution processes</li>
-      </ul>
-
-      <div class="project-name">AT&T</div>
-      <ul>
-        <li>Led 2-year implementation of billing flow logic and order management; managed team to streamline telecom business workflows</li>
-        <li>Configured Enterprise Product Catalog (EPC) and delivered billing flow solutions integrated with Enterprise Service Management (ESM)</li>
-        <li>Collaborated with third-party teams enabling data exchange via MuleSoft; delivered Service Cloud with Communications Cloud</li>
-        <li>Solved complex telecom challenges; directed cross-functional teams for high-quality deliverables and compliance</li>
-      </ul>
-      <div class="tech-stack">Key Technologies: Salesforce CRM, EPC, LWC, Service Cloud, Vlocity Omniscript, Flex Cards, Integration Procedures, Order Management</div>
-    </div>
-
-    <div class="experience-item">
-      <div class="company-name">Altimetrik, Bengaluru, India</div>
-      <div class="job-header">
-        <span class="job-title">Consultant</span>
-        <span class="job-date">April 2020 – June 2021</span>
+    <!-- ── TECHNICAL SKILLS ── -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-table">
+        <div class="skill-row">
+          <span class="skill-label">CRM Clouds:</span>
+          <span class="skill-value">Sales Cloud, Service Cloud, FSL, Experience Cloud, Comm. Cloud</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Integration:</span>
+          <span class="skill-value">REST/SOAP APIs, MuleSoft, Vlocity Integration Procedures, Flat-form</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Industries / CPQ:</span>
+          <span class="skill-value">Vlocity OmniStudio, EPC, ESM, DataRaptors, CPQ, Order Mgmt</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">DevOps / CI-CD:</span>
+          <span class="skill-value">Copado, SFDX Unlock Packages, CI/CD Pipelines, Python scripting</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Development:</span>
+          <span class="skill-value">Apex, LWC, Visualforce, Batch/Queueable/Scheduled Apex, SOQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Languages:</span>
+          <span class="skill-value">Apex, JavaScript, Core Java, Python</span>
+        </div>
       </div>
-      <div class="project-name">Intuit</div>
-      <ul>
-        <li>Developed Lightning Web Components (LWC) for B2B and B2C Salesforce platforms</li>
-        <li>Designed and implemented CI/CD pipelines using Python and SFDX for streamlined deployments</li>
-        <li>Automated development workflows to enhance efficiency and minimize deployment errors</li>
-        <li>Ensured seamless integration and deployment through robust pipeline architecture</li>
-      </ul>
-      <div class="tech-stack">Key Technologies: Salesforce CRM, Lightning, Apex, Communities, Python</div>
-    </div>
+    </section>
 
-    <div class="experience-item">
-      <div class="company-name">Cignex Datamatics, Bengaluru, India</div>
-      <div class="job-header">
-        <span class="job-title">Salesforce Developer</span>
-        <span class="job-date">May 2019 – March 2020</span>
+    <!-- ── CERTIFICATIONS ── -->
+    <section>
+      <h2 class="section-title">Salesforce Certifications (20+)</h2>
+      <ul class="certs-grid">
+        <li>Certified Application Architect</li>
+        <li>Certified Sharing and Visibility Architect</li>
+        <li>Certified Integration Architect</li>
+        <li>Certified Data Architect</li>
+        <li>Certified Development Lifecycle &amp; Deployment Architect</li>
+        <li>Certified Administrator</li>
+        <li>Certified Associate</li>
+        <li>Certified CPQ Specialist</li>
+        <li>Certified Experience Cloud Consultant</li>
+        <li>Industries CPQ Developer</li>
+        <li>Certified JavaScript Developer I</li>
+        <li>Certified OmniStudio Developer</li>
+        <li>Certified Platform App Builder</li>
+        <li>Certified Platform Developer I &amp; II</li>
+        <li>Certified Sales Cloud Consultant</li>
+        <li>Certified Service Cloud Consultant</li>
+        <li>Salesforce Fundamentals 1 &amp; 2</li>
+        <li>Copado Certified</li>
+      </ul>
+    </section>
+
+    <!-- ── PROFESSIONAL EXPERIENCE ── -->
+    <section>
+      <div class="section-anchor">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <!-- Salesforce India -->
+      <div class="experience-item">
+        <div class="company-header">
+          <div>
+            <span class="company-name">Salesforce India Pvt. Ltd.</span>
+            <span class="company-location"> — Bengaluru, India</span>
+          </div>
+          <span class="job-date">June 2021 – Present</span>
+        </div>
+        <div class="job-title">Senior Salesforce Developer / Team Lead</div>
+
+        <div class="project-block">
+          <div class="project-name">AT&amp;T (Telecom) <span class="project-role">| 4+ years · Lead Developer</span></div>
+          <ul>
+            <li>Led a team of <strong>6+ engineers</strong> delivering Vlocity/Industries-based billing logic and order management across AT&amp;T's enterprise Salesforce org.</li>
+            <li>Configured <strong>Enterprise Product Catalog (EPC)</strong> and built end-to-end billing flows integrated with Enterprise Service Management (ESM).</li>
+            <li>Architected MuleSoft-based data exchange with third-party systems; delivered Service Cloud with full Communications Cloud stack.</li>
+            <li>Resolved complex telecom order challenges; drove cross-functional compliance across global teams.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: Vlocity OmniStudio, EPC, ESM, MuleSoft, Service Cloud, Order Management, LWC</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Lumen Technologies (Telecom) <span class="project-role">| Integration Lead</span></div>
+          <ul>
+            <li>Designed and enhanced ESM features; built <strong>REST API integrations</strong> from Salesforce → MuleSoft → Lumen backend systems.</li>
+            <li>Built 15+ Vlocity OmniScripts and DataRaptors with robust error-handling and retry mechanisms, reducing integration failures by ~40%.</li>
+            <li>Developed LWC components integrated with OmniScript for agent-facing interfaces; contributed to CPQ implementation.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: Vlocity, LWC, ESM, CPQ, REST APIs, MuleSoft</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">SiriusXM (Subscription SaaS) <span class="project-role">| Full-Stack Salesforce Developer</span></div>
+          <ul>
+            <li>Built Vlocity OmniScript and Integration Procedures for car music subscription order flows end-to-end.</li>
+            <li>Designed advanced error-handling and workflow automation, streamlining subscription lifecycle management on Communications Cloud.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: Communications Cloud, OmniStudio, Integration Procedures, DataRaptors, Sales Cloud</div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">3Water — NZ Government (Utilities) <span class="project-role">| Technical Lead</span></div>
+          <ul>
+            <li>Delivered OmniScript and LWC solutions for water distribution management across New Zealand government infrastructure.</li>
+            <li>Contributed to CPQ, EPC, and ESM implementations; optimized complex water distribution workflow automation.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: OmniStudio, LWC, CPQ, EPC, ESM</div>
+        </div>
       </div>
-      <div class="project-name">Schneider Electric</div>
-      <ul>
-        <li>Enhanced Salesforce CRM for service logs and complaint tracking</li>
-        <li>Streamlined service log management and optimized complaint tracking processes</li>
-        <li>Improved data handling, reporting, and customer service efficiency</li>
-      </ul>
-      <div class="tech-stack">Key Technologies: Salesforce CRM, Visualforce, Lightning, Apex, LWC</div>
-    </div>
+      </div><!-- /section-anchor -->
 
-    <div class="experience-item">
-      <div class="company-name">WarpDrive Tech Works, Bengaluru, India</div>
-      <div class="job-header">
-        <span class="job-title">Technical Specialist</span>
-        <span class="job-date">June 2017 – May 2019</span>
+      <!-- Altimetrik -->
+      <div class="experience-item">
+        <div class="company-header">
+          <div>
+            <span class="company-name">Altimetrik</span>
+            <span class="company-location"> — Bengaluru, India</span>
+          </div>
+          <span class="job-date">April 2020 – June 2021</span>
+        </div>
+        <div class="job-title">Consultant</div>
+
+        <div class="project-block">
+          <div class="project-name">Intuit (FinTech SaaS) <span class="project-role">| Salesforce Developer + DevOps</span></div>
+          <ul>
+            <li>Built <strong>20+ Lightning Web Components</strong> for B2B and B2C Salesforce platforms serving millions of Intuit customers.</li>
+            <li>Architected and implemented CI/CD pipelines using Python + SFDX, cutting deployment time by ~60% and eliminating manual release steps.</li>
+            <li>Ensured seamless cross-org integration and deployment via robust pipeline architecture and automated validation.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: Salesforce CRM, LWC, Apex, Communities, Python, SFDX Unlock Packages</div>
+        </div>
       </div>
-      <div class="project-name">NestAway & Cowrks</div>
-      <ul>
-        <li>Delivered Salesforce CRM solutions for rental and coworking operations (Service Cloud, Sales Cloud)</li>
-        <li>Developed custom functionalities using Apex, Lightning, and Visualforce</li>
-        <li>Designed Salesforce Communities for collaboration; optimized data management and reporting</li>
-      </ul>
-      <div class="tech-stack">Key Technologies: Salesforce CRM, Visualforce, Lightning, Apex, LWC</div>
-    </div>
-  </section>
 
-  <section>
-    <h2 class="section-title">Education</h2>
-    <div class="education-item">
-      <strong>Bachelor of Engineering, Computer Technology</strong> — Nagpur University (RTMNU), 2016
-    </div>
-  </section>
+      <!-- Cignex -->
+      <div class="experience-item">
+        <div class="company-header">
+          <div>
+            <span class="company-name">Cignex Datamatics</span>
+            <span class="company-location"> — Bengaluru, India</span>
+          </div>
+          <span class="job-date">May 2019 – March 2020</span>
+        </div>
+        <div class="job-title">Salesforce Developer</div>
+
+        <div class="project-block">
+          <div class="project-name">Schneider Electric (Industrial Manufacturing)</div>
+          <ul>
+            <li>Enhanced Salesforce CRM for service log tracking and complaint management, improving field service team efficiency.</li>
+            <li>Streamlined complaint processing pipeline; improved data handling, reporting, and customer resolution time.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: Salesforce CRM, Lightning, Apex, LWC</div>
+        </div>
+      </div>
+
+      <!-- WarpDrive -->
+      <div class="experience-item">
+        <div class="company-header">
+          <div>
+            <span class="company-name">WarpDrive Tech Works</span>
+            <span class="company-location"> — Bengaluru, India</span>
+          </div>
+          <span class="job-date">June 2017 – May 2019</span>
+        </div>
+        <div class="job-title">Technical Specialist</div>
+
+        <div class="project-block">
+          <div class="project-name">NestAway &amp; Cowrks (Real Estate / Co-working)</div>
+          <ul>
+            <li>Delivered Salesforce CRM solutions for rental and co-working operations using Service Cloud and Sales Cloud.</li>
+            <li>Built custom Apex, Lightning, and Visualforce components; designed Salesforce Communities for tenant collaboration.</li>
+            <li>Optimized data management, reporting dashboards, and operational workflows for property management teams.</li>
+          </ul>
+          <div class="tech-stack">Key Tech: Salesforce CRM, Visualforce, Lightning, Apex, LWC</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-header">
+        <span class="edu-degree">Bachelor of Engineering, Computer Technology</span>
+        <span class="edu-year">2016</span>
+      </div>
+      <div style="font-size:9.5pt; color:var(--text-muted);">Nagpur University (RTMNU), Maharashtra, India</div>
+    </section>
+
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
   <script src="./script.js"></script>
   <script>
     (function() {
-      document.getElementById('download-pdf').addEventListener('click', function() {
-        var btn = this;
+      var btn = document.getElementById('download-pdf');
+      btn.addEventListener('click', function() {
         btn.disabled = true;
         btn.textContent = 'Generating…';
         var opt = {
-          margin: 20,
-          filename: 'Baibhav_Kumar_Resume.pdf',
+          margin: 16,
+          filename: 'Baibhav Kumar – Salesforce Architect.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
